@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Finding User Location
+//  Location Aware
 //
 //  Created by Sean Higgins on 6/20/19.
 //  Copyright © 2019 Sean Higgins. All rights reserved.

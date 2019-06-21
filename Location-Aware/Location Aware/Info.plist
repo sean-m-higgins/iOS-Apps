@@ -35,9 +35,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Because I want to know where you are!</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Because why not?</string>
+	<string>Because pls.</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

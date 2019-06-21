@@ -1,15 +1,15 @@
 //
-//  Finding_User_LocationTests.swift
-//  Finding User LocationTests
+//  Location_AwareTests.swift
+//  Location AwareTests
 //
 //  Created by Sean Higgins on 6/20/19.
 //  Copyright © 2019 Sean Higgins. All rights reserved.
 //
 
 import XCTest
-@testable import Finding_User_Location
+@testable import Location_Aware
 
-class Finding_User_LocationTests: XCTestCase {
+class Location_AwareTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
