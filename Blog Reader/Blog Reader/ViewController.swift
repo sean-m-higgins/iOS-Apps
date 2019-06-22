@@ -17,11 +17,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var welcome_label: UILabel!
     @IBOutlet weak var continue_label: UIButton!
     @IBOutlet weak var login_label: UIButton!
+    @IBOutlet weak var change_username_label: UIButton!
+    
+    var current_username = ""
+    var login_status = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         login_label.alpha = 0
+        change_username_label.alpha = 0
         
         let app_delegate = UIApplication.shared.delegate as! AppDelegate
         let context = app_delegate.persistentContainer.viewContext
@@ -37,10 +42,13 @@ class ViewController: UIViewController {
                     
                     if let username = result.value(forKey: "username") as? String {
                         
-                        self.confirm_password_textbox.alpha = 0
-                        self.continue_label.alpha = 0
-                        self.login_label.alpha = 1
-                        self.welcome_label.text = "Welcome Back \(username)!"
+                        current_username = username
+                        confirm_password_textbox.alpha = 0
+                        continue_label.alpha = 0
+                        login_label.alpha = 1
+                        change_username_label.alpha = 1
+                        login_status = true
+                        welcome_label.text = "Welcome Back \(username)!"
                     }
                 }
             }
@@ -74,9 +82,17 @@ class ViewController: UIViewController {
                     new_user.setValue(username_textbox.text, forKey: "username")
                     new_user.setValue(password_textbox.text, forKey: "password")
                     
+                    confirm_password_textbox.alpha = 0
+                    continue_label.alpha = 0
+                    login_label.alpha = 1
+                    change_username_label.alpha = 1
+                    login_status = true
+                    welcome_label.text = "Welcome \(username_textbox.text!)! Please Login"
+                    username_textbox.text = ""
+                    password_textbox.text = ""
+                    
                     do {
                         try context.save()
-                        print("Saved")
                     } catch {
                         print("There as an error")
                     }
@@ -102,20 +118,62 @@ class ViewController: UIViewController {
             
             do {
                 let results = try context.fetch(request)
-                if results.count > 0 {
+                if results.count == 1 {
                     for result in results as! [NSManagedObject] {
                         if let password = result.value(forKey: "password") as? String {
                             if password == password_textbox.text {
                                 self.welcome_label.text = "Great! You successfully Logged in"
                             }
-                            context.delete(result)
                         }
                     }
                 }
             } catch {
                 print("error")
             }
+        }
+    }
+    
+    @IBAction func change_username_button(_ sender: Any) {
+        if username_textbox.text != ""  && login_status == true {
+            // check if valid username
+            let app_delegate = UIApplication.shared.delegate as! AppDelegate
+            let context = app_delegate.persistentContainer.viewContext
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
             
+            request.predicate = NSPredicate(format: "username = %@", username_textbox.text!)
+            request.returnsObjectsAsFaults = false
+            
+            do {
+                let results = try context.fetch(request)
+                // check if username already exists
+                for result in results as! [NSManagedObject] {
+                    if let username = result.value(forKey: "username") as? String {
+                        username_textbox.text = "\(username) already taken"
+                        break
+                    }
+                }
+                
+                let new_request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
+                
+                do {
+                    let new_results = try context.fetch(new_request)
+                    for result in new_results as! [NSManagedObject] {
+                        result.setValue(username_textbox.text, forKey: "username")
+                        current_username = username_textbox.text!
+                        welcome_label.text = "Ah nice change, \(current_username)!"
+                    }
+                } catch {
+                    print("error")
+                }
+                
+                do {
+                    try context.save()
+                } catch {
+                    print("There as an error")
+                }
+            } catch {
+                print("error")
+            }
         }
     }
     

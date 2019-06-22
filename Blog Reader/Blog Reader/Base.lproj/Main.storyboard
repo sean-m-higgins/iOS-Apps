@@ -24,6 +24,7 @@
                                     <constraint firstAttribute="width" constant="300" id="IZ9-5E-8Jf"/>
                                 </constraints>
                                 <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8B-NF-t71">
@@ -79,6 +80,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kta-Dy-vry">
+                                <rect key="frame" x="37" y="557" width="125" height="30"/>
+                                <state key="normal" title="Change username"/>
+                                <connections>
+                                    <action selector="change_username_button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0zf-Km-1sM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -87,10 +95,12 @@
                             <constraint firstItem="IEo-aZ-5T9" firstAttribute="trailing" secondItem="LKm-zN-HmV" secondAttribute="trailing" id="HkN-6q-21s"/>
                             <constraint firstItem="vfT-D1-EVE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lsu-y8-dBj"/>
                             <constraint firstItem="IEo-aZ-5T9" firstAttribute="top" secondItem="LKm-zN-HmV" secondAttribute="bottom" constant="27" id="M8g-8L-S8k"/>
+                            <constraint firstItem="Kta-Dy-vry" firstAttribute="top" secondItem="YGK-s4-Ddv" secondAttribute="bottom" constant="8" id="OmZ-kK-mFd"/>
                             <constraint firstItem="KvH-AG-9tm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SZX-Ai-JnU"/>
                             <constraint firstItem="YGK-s4-Ddv" firstAttribute="leading" secondItem="KvH-AG-9tm" secondAttribute="leading" id="TdV-e3-VUG"/>
                             <constraint firstItem="KvH-AG-9tm" firstAttribute="top" secondItem="vfT-D1-EVE" secondAttribute="bottom" constant="39" id="VQb-Rk-231"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pAn-W2-anA" secondAttribute="trailing" id="blP-Vu-wgi"/>
+                            <constraint firstItem="Kta-Dy-vry" firstAttribute="leading" secondItem="LKm-zN-HmV" secondAttribute="leading" id="cc6-mC-S8M"/>
                             <constraint firstItem="LKm-zN-HmV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cpm-Qb-hrz"/>
                             <constraint firstItem="YGK-s4-Ddv" firstAttribute="top" secondItem="KvH-AG-9tm" secondAttribute="bottom" constant="25" id="hvQ-gm-58V"/>
                             <constraint firstItem="vfT-D1-EVE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="iQi-RU-78b"/>
@@ -100,6 +110,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="change_username_label" destination="Kta-Dy-vry" id="GRy-PI-ab3"/>
                         <outlet property="confirm_password_textbox" destination="LKm-zN-HmV" id="iaw-0f-5Dl"/>
                         <outlet property="continue_label" destination="IEo-aZ-5T9" id="l7a-49-XMy"/>
                         <outlet property="login_label" destination="YGK-s4-Ddv" id="2nf-zy-6HJ"/>
