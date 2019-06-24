@@ -123,9 +123,15 @@ class ViewController: UIViewController {
                         if let password = result.value(forKey: "password") as? String {
                             if password == password_textbox.text {
                                 self.welcome_label.text = "Great! You successfully Logged in"
+                                
+                                self.performSegue(withIdentifier: "segue_to_image", sender: self)
+                            } else {
+                                self.welcome_label.text = "Sorry, incorrect password."
                             }
                         }
                     }
+                } else {
+                    self.welcome_label.text = "Sorry, incorrect username."
                 }
             } catch {
                 print("error")

@@ -81,7 +81,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kta-Dy-vry">
-                                <rect key="frame" x="37" y="557" width="125" height="30"/>
+                                <rect key="frame" x="37.666666666666657" y="557" width="125" height="30"/>
                                 <state key="normal" title="Change username"/>
                                 <connections>
                                     <action selector="change_username_button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0zf-Km-1sM"/>
@@ -117,11 +117,40 @@
                         <outlet property="password_textbox" destination="KvH-AG-9tm" id="p6Q-38-Leg"/>
                         <outlet property="username_textbox" destination="vfT-D1-EVE" id="z3i-Hh-zgg"/>
                         <outlet property="welcome_label" destination="pAn-W2-anA" id="pDB-9W-hIr"/>
+                        <segue destination="4h7-Qd-kbp" kind="show" identifier="segue_to_image" id="F1G-66-TBt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-372" y="132"/>
+            <point key="canvasLocation" x="-782" y="156"/>
+        </scene>
+        <!--View Controller2-->
+        <scene sceneID="voO-12-XL4">
+            <objects>
+                <viewController id="4h7-Qd-kbp" customClass="ViewController2" customModule="Blog_Reader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gJV-NO-NEN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqh-dv-Oeo">
+                                <rect key="frame" x="0.0" y="44" width="375" height="229"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cqh-dv-Oeo" firstAttribute="trailing" secondItem="TS1-Rg-GoB" secondAttribute="trailing" id="Vaf-kU-tc1"/>
+                            <constraint firstItem="cqh-dv-Oeo" firstAttribute="leading" secondItem="TS1-Rg-GoB" secondAttribute="leading" id="dD6-MJ-heG"/>
+                            <constraint firstItem="cqh-dv-Oeo" firstAttribute="top" secondItem="TS1-Rg-GoB" secondAttribute="top" id="z5N-q4-p5Q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TS1-Rg-GoB"/>
+                    </view>
+                    <connections>
+                        <outlet property="image_view" destination="cqh-dv-Oeo" id="byO-Jn-ntS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hZw-hW-RgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="88.799999999999997" y="155.9113300492611"/>
         </scene>
     </scenes>
 </document>
