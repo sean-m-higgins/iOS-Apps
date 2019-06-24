@@ -34,16 +34,17 @@
                                     <constraint firstAttribute="height" constant="50" id="t9H-f7-hcO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
-                                <state key="normal" title="Enter city for local forecast">
+                                <state key="normal" title="Enter zipcode for local forecast">
                                     <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="getWeather:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uO0-iP-kdn"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zpd-so-lYS">
-                                <rect key="frame" x="40" y="336" width="334" height="526"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zpd-so-lYS">
+                                <rect key="frame" x="40" y="451" width="334" height="241"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -51,29 +52,29 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Oq6-Tu-CdE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="45J-JV-CGp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zpd-so-lYS" secondAttribute="trailing" constant="40" id="4Gw-cn-9Bf"/>
                             <constraint firstItem="Oq6-Tu-CdE" firstAttribute="top" secondItem="B7t-p2-01j" secondAttribute="bottom" constant="-238" id="9XL-p2-aTH"/>
-                            <constraint firstItem="Zpd-so-lYS" firstAttribute="top" secondItem="kxe-Sg-Nrm" secondAttribute="bottom" constant="40" id="AYl-oK-HHQ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zpd-so-lYS" secondAttribute="trailing" constant="40" id="FnI-pk-cau"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Zpd-so-lYS" secondAttribute="bottom" constant="170" id="IIG-Ro-wVt"/>
                             <constraint firstItem="kxe-Sg-Nrm" firstAttribute="width" secondItem="Oq6-Tu-CdE" secondAttribute="width" id="NaD-nh-mVv"/>
                             <constraint firstItem="Oq6-Tu-CdE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="OlW-yB-QcA"/>
-                            <constraint firstItem="Zpd-so-lYS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Pvy-kb-jmd"/>
                             <constraint firstAttribute="bottom" secondItem="Oq6-Tu-CdE" secondAttribute="bottom" id="T55-cy-Cue"/>
                             <constraint firstItem="B7t-p2-01j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="VQe-E6-kZD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="B7t-p2-01j" secondAttribute="trailing" constant="40" id="XWB-yE-1wu"/>
                             <constraint firstItem="kxe-Sg-Nrm" firstAttribute="centerX" secondItem="B7t-p2-01j" secondAttribute="centerX" id="gU0-p4-EeN"/>
+                            <constraint firstItem="Zpd-so-lYS" firstAttribute="top" secondItem="kxe-Sg-Nrm" secondAttribute="bottom" constant="155" id="h57-Gj-g3o"/>
                             <constraint firstItem="Oq6-Tu-CdE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="huM-tv-Ofv"/>
-                            <constraint firstItem="Zpd-so-lYS" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="lkQ-e0-tI9"/>
                             <constraint firstItem="Oq6-Tu-CdE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="mRI-By-vPq"/>
                             <constraint firstItem="Oq6-Tu-CdE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mfw-D7-YTj"/>
                             <constraint firstAttribute="bottom" secondItem="Oq6-Tu-CdE" secondAttribute="bottom" id="rvM-K7-aIA"/>
+                            <constraint firstItem="Zpd-so-lYS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="wEM-Qa-xq7"/>
                             <constraint firstItem="kxe-Sg-Nrm" firstAttribute="top" secondItem="B7t-p2-01j" secondAttribute="bottom" constant="8" id="xCA-Dh-d9w"/>
                             <constraint firstItem="Oq6-Tu-CdE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zvr-vx-8hg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="city_text_field" destination="B7t-p2-01j" id="WOP-l0-dY1"/>
                         <outlet property="output_forecast" destination="Zpd-so-lYS" id="Xeb-IB-ZCz"/>
+                        <outlet property="zip_text_field" destination="B7t-p2-01j" id="WOP-l0-dY1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

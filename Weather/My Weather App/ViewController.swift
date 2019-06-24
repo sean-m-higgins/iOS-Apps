@@ -10,12 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var city_text_field: UITextField!
+    @IBOutlet weak var zip_text_field: UITextField!
     
     @IBOutlet weak var output_forecast: UILabel!
     
     @IBAction func getWeather(_ sender: Any) {
-        
+        /*
+         *
+         * Get weather from website below by scraping web page.
         if let url = URL(string: "https://www.weather-forecast.com/locations/" + city_text_field.text!.replacingOccurrences(of: " ", with: "-") + "/forecasts/latest") {
             
             let request = NSMutableURLRequest(url: url)
@@ -60,8 +62,57 @@ class ViewController: UIViewController {
             output_forecast.text = "The city entered does not match any listed."
         }
         
+        */
         
-        
+        if zip_text_field.text != "" {
+            let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?zip=\(zip_text_field.text!),us&appid=6bac475cbd83e8a335974e8f5d60fa40")!
+ 
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                
+                if error != nil {
+                    print(error!)
+                } else {
+                    
+                    if let url_content = data {
+                        
+                        do {
+                            let json_result = try  JSONSerialization.jsonObject(with: url_content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            
+                            print(json_result)
+                        
+                            if let name = json_result["name"] as? String {
+                                let description = ((json_result["weather"] as? NSArray)?[0] as? NSDictionary)?["description"]
+                                
+                                let humidity = ((json_result["main"] as? NSDictionary)?["humidity"])
+                                
+                                let max_temp = ((json_result["main"] as? NSDictionary)?["temp_max"])
+                                var max_temp_f = max_temp as! Double
+                                max_temp_f = ((max_temp_f - 273.15) * 9/5 + 32)
+                                max_temp_f = max_temp_f.rounded()
+                                
+                                let min_temp = ((json_result["main"] as? NSDictionary)?["temp_min"])
+                                var min_temp_f = min_temp as! Double
+                                min_temp_f = ((min_temp_f - 273.15) * 9/5 + 32)
+                                min_temp_f = min_temp_f.rounded()
+                                
+                                DispatchQueue.main.sync {
+                                    self.output_forecast.text = "\(String(describing: name))'s weather today is \(String(describing: description!)), with a humidity of \(String(describing: humidity!)) and temperature between \(String(describing: min_temp_f)) and \(String(describing: max_temp_f))."
+                                    
+                                    self.output_forecast.alpha = 0.7
+                                }
+                            } else {
+                                DispatchQueue.main.sync {
+                                    self.output_forecast.text = "Couldn't find weather for that location, please try another zipcode (US only)."
+                                }
+                            }
+                        } catch {
+                            print("json error")
+                        }
+                    }
+                }
+            }
+            task.resume()
+        }
     }
     
     override func viewDidLoad() {
